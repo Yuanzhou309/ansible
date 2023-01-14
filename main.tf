@@ -19,8 +19,8 @@ variable "key_name" {
   default = "aws_sydney"
 }
 
-resource "aws_security_group" "p3-project-trail" {
-  name        = "p3-project-trail"
+resource "aws_security_group" "jr_ansible" {
+  name        = "jr_ansible"
   description = "Security group for p3"
   vpc_id      = var.vpc_id
 
@@ -81,44 +81,44 @@ resource "aws_security_group" "p3-project-trail" {
   ]
 
   tags = {
-    Name    = "p3-project-trail"
-    Project = "p3"
+    Name    = "jr_ansible"
+    Project = "jrcms"
   }
 }
 
 resource "aws_instance" "redis" {
   ami             = "ami-0567f647e75c7bc05"
   instance_type   = "t2.micro"
-  security_groups = [aws_security_group.p3-project-trail.name]
+  security_groups = [aws_security_group.jr_ansible.name]
   key_name = var.key_name
 
   tags = {
     Name    = "redis"
-    Project = "p3"
+    Project = "jrcms"
   }
 }
 
 resource "aws_instance" "web1" {
   ami             = "ami-0567f647e75c7bc05"
   instance_type   = "t2.micro"
-  security_groups = [aws_security_group.p3-project-trail.name]
+  security_groups = [aws_security_group.jr_ansible.name]
   key_name = var.key_name
 
   tags = {
     Name    = "web"
-    Project = "p3"
+    Project = "jrcms"
   }
 }
 
 resource "aws_instance" "web2" {
   ami             = "ami-0567f647e75c7bc05"
   instance_type   = "t2.micro"
-  security_groups = [aws_security_group.p3-project-trail.name]
+  security_groups = [aws_security_group.jr_ansible.name]
   key_name = var.key_name
 
   tags = {
     Name    = "web"
-    Project = "p3"
+    Project = "jrcms"
   }
 }
 
