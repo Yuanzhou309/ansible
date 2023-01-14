@@ -16,7 +16,7 @@ provider "aws" {
 
 variable "key_name" {
   type = string
-  default = "p3"
+  default = "aws_sydney"
 }
 
 resource "aws_security_group" "p3-project-trail" {
