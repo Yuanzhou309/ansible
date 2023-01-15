@@ -129,6 +129,10 @@ variable "vpc_id" {
 
 
 
+
+
+
+
 # security group all
 #ami-04b9e92b5572fa0d1
 
